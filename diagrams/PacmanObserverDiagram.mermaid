@@ -1,0 +1,45 @@
+classDiagram
+    Edibles <|-- Fruit : implements
+    Edibles <|-- Dots : implements
+    Adversary <|-- Ghost : implements
+    Adversary <|-- WitchDoctor : implements
+    Fruit --> Adversary : Associates
+    Dots --> Adversary : Associates
+    Ghost --> Edibles : Associates
+    WitchDoctor --> Edibles : Associates
+    class Pacman {
+    }
+    class Edibles {
+        <<interface>>
+        +register()
+        +unregister()
+        +notify()
+        +getState()
+        +setState(Object)
+    }
+    class Fruit {
+      -List~Adversary~ adversaryList
+      +register()
+      +unregister()
+      +notify()
+      +getState()
+      +setState(Object)
+    }
+    class Dots{
+      -List~Adversary~ adversaryList
+      +register()
+      +unregister()
+      +notify()
+      +getState()
+      +setState(Object)
+    }
+    class Adversary {
+        <<interface>>
+        +update(Edible)
+    }
+    class Ghost {
+        +update(Edible)
+    }
+    class WitchDoctor {
+        +update(Edible)
+    }
